@@ -1,0 +1,15 @@
+.bg-primary {
+  background-color: #2f495e !important;
+}
+
+.text-primary {
+  color: #2f495e !important;
+}
+
+.text-success {
+  color: #00c48d !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
