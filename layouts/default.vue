@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <Navbar />
-    <nuxt />
+  <div class="d-flex" id="wrapper">
+    <SideNav v-if="$store.state.login.auth" />
+    <div id="page-content-wrapper" v-if="$store.state.login.auth">
+      <Navbar />
+      <nuxt />
+    </div>
+    <nuxt v-if="!$store.state.login.auth" />
   </div>
 </template>
 
@@ -28,10 +32,12 @@ html {
 
 <script>
 import Navbar from "~/components/Navbar.vue";
+import SideNav from "~/components/SideNav.vue";
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    SideNav
   }
 };
 </script>
