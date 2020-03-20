@@ -14,7 +14,14 @@ export default {
         content: process.env.npm_package_description || ""
       }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    // link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      {
+        rel: "icon",
+        type: "image/png",
+        href: "https://nuxtjs.org/logos/nuxt-emoji.png"
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -25,6 +32,7 @@ export default {
    */
   css: [
     "@fortawesome/fontawesome-free/css/all.min.css",
+    "@assets/css/sidebar.css",
     "@assets/css/style.css"
   ],
   /*
