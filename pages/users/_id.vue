@@ -1,29 +1,47 @@
 <template>
-  <div class="container py-4">
+  <div class="container py-3">
     <form>
+      <img
+        :src="data.image"
+        :alt="data.name"
+        class="rounded-circle mx-auto d-block"
+        width="200"
+      />
+
       <div class="form-group">
         <label>Name</label>
-        <input type="email" class="form-control" :value="data.name" disabled />
+        <input type="email" class="form-control" v-model="data.name" disabled />
       </div>
       <div class="form-group">
-        <label>Username</label>
-        <input type="text" class="form-control" :value="data.username" disabled />
+        <label>Status</label>
+        <input
+          type="text"
+          class="form-control"
+          v-model="data.status"
+          disabled
+        />
       </div>
       <div class="form-group">
-        <label>Phone</label>
-        <input type="email" class="form-control" :value="data.phone" disabled />
+        <label>Species</label>
+        <input
+          type="email"
+          class="form-control"
+          v-model="data.species"
+          disabled
+        />
+      </div>
+      <div class="form-group" v-if="data.type">
+        <label>Type</label>
+        <input type="email" class="form-control" v-model="data.type" disabled />
       </div>
       <div class="form-group">
-        <label>Email address</label>
-        <input type="email" class="form-control" :value="data.email" disabled />
-      </div>
-      <div class="form-group">
-        <label>Website</label>
-        <input type="text" class="form-control" :value="data.website" disabled />
-      </div>
-      <div class="form-group">
-        <label>Company</label>
-        <input type="text" class="form-control" :value="data.company.name" disabled />
+        <label>Gender</label>
+        <input
+          type="text"
+          class="form-control"
+          v-model="data.gender"
+          disabled
+        />
       </div>
     </form>
     <nuxt-link to="/users">volver</nuxt-link>
@@ -36,8 +54,10 @@ import axios from "axios";
 export default {
   async asyncData({ params }) {
     const data = await axios.get(
-      `https://jsonplaceholder.typicode.com/users/${params.id}`
+      // `https://jsonplaceholder.typicode.com/users/${params.id}`
+      `https://rickandmortyapi.com/api/character/${params.id}`
     );
+    console.log(data.data);
     return { data: data.data };
   },
   middleware: "authenticated",
