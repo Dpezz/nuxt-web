@@ -1,7 +1,10 @@
 <template>
-  <div>
-    <Navbar />
-    <nuxt />
+  <div class="row mx-0">
+    <SideNav v-if="$auth.user" />
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-0">
+      <Navbar />
+      <nuxt />
+    </main>
   </div>
 </template>
 
@@ -28,10 +31,12 @@ html {
 
 <script>
 import Navbar from "~/components/Navbar.vue";
+import SideNav from "~/components/SideNav.vue";
 
 export default {
   components: {
-    Navbar
+    Navbar,
+    SideNav
   }
 };
 </script>
