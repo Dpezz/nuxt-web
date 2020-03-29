@@ -1,28 +1,33 @@
 <template>
-  <div class="container text-center">
-    <form class="form-signin text-center my-4">
-      <img class="mb-4" src="https://nuxtjs.org/logos/nuxt-square.svg" alt width="124" />
-      <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-      <label for="inputEmail" class="sr-only">Email address</label>
-      <input
-        type="email"
-        id="inputEmail"
-        class="form-control"
-        placeholder="Email address"
-        required
-        autofocus
-      />
-      <label for="inputPassword" class="sr-only">Password</label>
-      <input
-        type="password"
-        id="inputPassword"
-        class="form-control"
-        placeholder="Password"
-        required
-      />
+  <div class="form-signin text-center my-4">
+    <img class="mb-4" src="https://nuxtjs.org/logos/nuxt-square.svg" alt width="124" />
+    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit" @click="login">Log in</button>
-    </form>
+    <b-form>
+      <b-form-group>
+        <b-form-input
+          id="input-1"
+          type="email"
+          v-model="userInfo.email"
+          placeholder="Enter email"
+          required
+          autofocus
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group>
+        <b-form-input
+          id="input-2"
+          type="password"
+          v-model="userInfo.password"
+          placeholder="Enter name"
+          required
+        ></b-form-input>
+      </b-form-group>
+
+      <b-button variant="primary" size="lg" block pill @click="login(userInfo)">Login</b-button>
+    </b-form>
+
     <nuxt-link class="text-center" to="/">volver</nuxt-link>
   </div>
 </template>
@@ -33,19 +38,25 @@ const cookie = process.client ? require("js-cookie") : undefined;
 export default {
   data() {
     return {
-      date: new Date()
+      date: new Date(),
+      userInfo: {
+        email: "jara@jara.cl",
+        password: "12345"
+      }
     };
   },
-  middleware: "notAuthenticated",
+  // middleware: "notAuthenticated",
+  auth: "guest",
   methods: {
-    login() {
-      const auth = {
-        accessToken: "someStringGotFromApiServiceWithAjax",
-        accessDate: new Date()
-      };
-      this.$store.commit("login/setAuth", auth); // mutating to store for client rendering
-      cookie.set("auth", auth); // saving token in cookie for server rendering
-      this.$router.push("/users");
+    login(userInfo) {
+      // const auth = {
+      //   accessToken: "someStringGotFromApiServiceWithAjax",
+      //   accessDate: new Date()
+      // };
+      // this.$store.commit("login/setAuth", auth); // mutating to store for client rendering
+      // cookie.set("auth", auth); // saving token in cookie for server rendering
+      // this.$router.push("/users");
+      this.$auth.loginWith("local", { data: userInfo });
     }
   }
 };

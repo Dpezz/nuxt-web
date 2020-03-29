@@ -60,7 +60,8 @@ export default {
     console.log(data.data);
     return { data: data.data };
   },
-  middleware: "authenticated",
+  layout: 'private',
+  middleware: "auth",
   methods: {
     save() {}
   },

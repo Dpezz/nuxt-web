@@ -18,12 +18,7 @@
         <tbody>
           <tr v-for="(item, i) in items" :key="i">
             <th scope="row">
-              <img
-                :src="item.image"
-                :alt="item.name"
-                class="rounded-circle"
-                width="48"
-              />
+              <img :src="item.image" :alt="item.name" class="rounded-circle" width="48" />
             </th>
             <td>{{ item.name }}</td>
             <td>{{ item.status }}</td>
@@ -53,7 +48,8 @@ export default {
       this.items = data.data.results;
     });
   },
-  middleware: "authenticated",
+  layout: "private",
+  middleware: "auth",
   methods: {
     // edit(item) {
     //   this.$router.push(`/users/${item}`);
