@@ -32,7 +32,7 @@ export default {
    */
   css: [
     "@fortawesome/fontawesome-free/css/all.min.css",
-    "@assets/css/sidebar.css",
+    "@assets/css/dashboard.css",
     "@assets/css/style.css"
   ],
   /*
@@ -48,8 +48,19 @@ export default {
    */
   modules: [
     // Doc: https://bootstrap-vue.js.org/docs/
-    "bootstrap-vue/nuxt"
+    "bootstrap-vue/nuxt",
+    "@nuxtjs/axios",
+    "@nuxtjs/auth"
   ],
+
+  bootstrapVue: {
+    icons: true
+  },
+
+  axios: {
+    baseURL: "http://localhost:8000/api"
+  },
+
   /*
    ** Build configuration
    */
@@ -58,5 +69,39 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+
+  router: {
+    middleware: ["auth"]
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: {
+            url: "/auth/login",
+            method: "post",
+            propertyName: "access_token"
+          },
+          logout: { url: "/auth/logout", method: "delete" },
+          user: { url: "/auth/user", method: "get", propertyName: "user" }
+        },
+        tokenRequired: true
+        // tokenType: 'bearer'
+        // autoFetchUser: true
+      }
+    },
+    redirect: {
+      login: "/login",
+      logout: "/login",
+      home: "/home"
+    },
+    cookie: {
+      options: {
+        expires: 1
+        // maxAge: 60
+      }
+    }
   }
 };
