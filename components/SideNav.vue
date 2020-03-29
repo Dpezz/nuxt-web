@@ -1,30 +1,56 @@
 <template>
-  <div class="bg-primary border-right position-fixed" id="sidebar-wrapper">
-    <div class="px-4 py-1 pb-5">
-      <img
-        src="https://nuxtjs.org/logos/nuxt-icon-white.png"
-        class="text-center"
-        width="56"
-        alt=""
-      />
+  <nav class="col-md-2 d-none d-md-block bg-light sidebar p-0 pt-2">
+    <div class="py-2 pb-5 px-3">
+      <img src="https://nuxtjs.org/logos/built-with-nuxt.svg" class="text-center" width="176" alt />
     </div>
-    <div class="list-group list-group-flush text-center">
-      <a href="#" class="list-group-item list-group-item-action bg-transparent">
-        <i class="fas fa-users text-light"></i>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action bg-transparent">
-        <i class="fas fa-file-alt text-light"></i>
-      </a>
+
+    <div class="sidebar-sticky">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <nuxt-link class="nav-link active" to="/home">
+            <b-icon icon="house"></b-icon>Dashboard
+            <span class="sr-only">(current)</span>
+          </nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link class="nav-link" to="/users">
+            <b-icon icon="people"></b-icon>Users
+          </nuxt-link>
+        </li>
+      </ul>
+
+      <h6
+        class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
+      >
+        <span>Saved reports</span>
+        <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+          <b-icon icon="bookmark" aria-hidden="true"></b-icon>
+        </a>
+      </h6>
+      <ul class="nav flex-column mb-2">
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <b-icon icon="check-circle"></b-icon>Current month
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <b-icon icon="check-circle"></b-icon>Last quarter
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <b-icon icon="check-circle"></b-icon>Social engagement
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">
+            <b-icon icon="check-circle"></b-icon>Year-end sale
+          </a>
+        </li>
+      </ul>
     </div>
-    <div class="list-group list-group-flush text-center fixed-bottom pb-2">
-      <a href="#" class="list-group-item list-group-item-action bg-transparent">
-        <i class="fas fa-ellipsis-h text-light"></i>
-      </a>
-      <a href="#" class="list-group-item list-group-item-action bg-transparent">
-        <i class="fas fa-sign-out-alt text-light"></i>
-      </a>
-    </div>
-  </div>
+  </nav>
 </template>
 
 <script>
