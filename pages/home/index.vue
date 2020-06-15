@@ -1,6 +1,12 @@
 <template>
-  <div class="container">
-    <h1 class="h3 mb-3 font-weight-normal">Home</h1>
+  <div class="container mt-3">
+    <div class="jumbotron">
+      <h1 class="display-4">Home!</h1>
+      <p class="lead">
+        This is a simple hero unit, a simple jumbotron-style component for
+        calling extra attention to featured content or information.
+      </p>
+    </div>
   </div>
 </template>
 

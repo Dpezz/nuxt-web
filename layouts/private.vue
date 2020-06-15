@@ -1,10 +1,16 @@
 <template>
   <div class="row mx-0">
-    <SideNav v-if="$auth.user" />
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-0">
+    <SideNav :isModal="false" v-if="$auth.user" class="d-none d-sm-none d-md-none d-lg-block" />
+    <main role="main" class="col ml-sm-auto px-0">
       <Navbar />
       <nuxt />
     </main>
+
+    <div>
+      <b-modal id="modal-1" title="BootstrapVue" hide-header hide-footer>
+        <SideNav :isModal="true" />
+      </b-modal>
+    </div>
   </div>
 </template>
 

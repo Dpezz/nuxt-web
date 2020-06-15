@@ -1,0 +1,64 @@
+body {
+  font-size: 0.875rem;
+}
+
+.sidebar {
+  grid-area: nav;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: block;
+  z-index: 12;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-inner {
+  height: calc(100vh - 148px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.sidebar-heading {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.col-xs {
+  max-width: 68px;
+}
+
+.fixed-bottom a {
+  cursor: pointer;
+}
+
+@media (max-width: 876px) {
+  .img-scale {
+    width: 96px;
+  }
+}
+
+.modal-content {
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-dialog {
+  margin: 0;
+  height: 100%;
+  width: 212px;
+}

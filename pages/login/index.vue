@@ -40,8 +40,8 @@ export default {
     return {
       date: new Date(),
       userInfo: {
-        email: "jara@jara.cl",
-        password: "12345"
+        email: "jara.pezzuoli@gmail.com",
+        password: "123"
       }
     };
   },

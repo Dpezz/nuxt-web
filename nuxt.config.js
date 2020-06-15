@@ -32,7 +32,7 @@ export default {
    */
   css: [
     "@fortawesome/fontawesome-free/css/all.min.css",
-    "@assets/css/dashboard.css",
+    "@assets/css/sidenav.css",
     "@assets/css/style.css"
   ],
   /*
@@ -85,7 +85,7 @@ export default {
             propertyName: "access_token"
           },
           logout: { url: "/auth/logout", method: "delete" },
-          user: { url: "/auth/user", method: "get", propertyName: "user" }
+          user: { url: "/auth/profile", method: "get", propertyName: "user" }
         },
         tokenRequired: true
         // tokenType: 'bearer'

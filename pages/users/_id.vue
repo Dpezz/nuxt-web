@@ -57,7 +57,6 @@ export default {
       // `https://jsonplaceholder.typicode.com/users/${params.id}`
       `https://rickandmortyapi.com/api/character/${params.id}`
     );
-    console.log(data.data);
     return { data: data.data };
   },
   layout: 'private',
